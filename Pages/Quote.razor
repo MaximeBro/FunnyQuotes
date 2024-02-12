@@ -1,0 +1,34 @@
+﻿@page "/"
+
+<PageTitle>Accueil</PageTitle>
+
+<script src="js/background.js"></script>
+@if (CurrentQuote != null)
+{
+    <MudStack Class="flex-grow-1" Style="position: absolute; height: 100vh; width: 100vw;">
+        <MudStack Class="ma-auto px-12 py-8">
+            <MudText Class="text-white overclock" Align="Align.Center" Typo="Typo.h5">@CurrentQuote.Quote</MudText>
+            @if (!CurrentQuote.Anonymous)
+            {
+                <MudText Class="white-text fst-italic pr-4" Align="Align.Right" Typo="Typo.subtitle2">@CurrentQuote.Author?.ToString()</MudText>
+            }
+            <MudStack Row Justify="Justify.SpaceBetween">
+                <MudSpacer/>
+                <MudStack class="mr-3">
+                    <MudBadge Origin="Origin.CenterRight" Content="@UpVotes" Max="999" Color="Color.Success">
+                        <MudIconButton Class="vote" Icon="fas fa-thumbs-up" Color="Color.Success" OnClick="@UpVote"/>
+                    </MudBadge>
+                </MudStack>
+                <MudStack Class="ml-3">
+                    <MudBadge Origin="Origin.CenterRight" Content="@DownVotes" Max="999" Color="Color.Error">
+                        <MudIconButton Class="vote" Icon="fas fa-thumbs-down" Color="Color.Error" OnClick="@DownVote"/>
+                    </MudBadge>
+                </MudStack>
+                <MudSpacer/>
+            </MudStack>
+        </MudStack>
+    </MudStack>
+}
+<div id="large-header" class="darkslide-bg">
+    <canvas id="demo-canvas"></canvas>
+</div>

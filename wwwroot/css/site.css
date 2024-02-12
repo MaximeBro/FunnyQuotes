@@ -1,0 +1,68 @@
+@import 'https://fonts.googleapis.com/css?family=Overlock:400,400i,700|Oleo+Script';
+@import 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap';
+
+.darkslide-bg {
+    background: linear-gradient(135deg, rgb(28, 27, 37) 0%, rgb(54, 50, 86) 92%);
+    overflow: clip;
+}
+
+.overclock {
+    font-family: 'Overlock', sans-serif!important;
+    font-weight: 500;
+    font-size: 32px!important;
+}
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif!important;
+    font-weight: 600!important;
+    font-size: 32px!important;
+    font-style: italic;
+}
+
+.orbitron-font {
+    font-family: 'Orbitron', sans-serif!important;
+}
+
+.vote:active {
+    animation: pulse 1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.clink {
+    position: relative;
+    z-index: 1;
+}
+
+.clink::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: -0.25em;
+    right: -0.25em;
+    background-color: #424242;
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.clink:hover::before {
+    transform: scaleX(1);
+    transform-origin: center left;
+}
+
+.clink:hover {
+    color: white!important;
+}

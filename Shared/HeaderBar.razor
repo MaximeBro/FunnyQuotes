@@ -1,0 +1,49 @@
+﻿<MudStack Row Class="px-12 py-4" Style="position: absolute; width: 100vw; z-index: 1;">
+    <MudLink Href="https://sasp.fr/" Style="text-decoration-color: white!important;" Target="_blank">
+        <MudText Class="py-auto text-white orbitron">SASP<span style="font-size: 20px;">.fr</span></MudText>
+    </MudLink>
+    <MudSpacer/>
+    <MudIconButton Class="text-white" Icon="fab fa-codepen" OnClick="@Toggle"/>
+</MudStack>
+<MudDrawerContainer>
+    <MudDrawer @bind-Open="_toggle" Width="100%" Style="background-color: #FFF;">
+        <MudDrawerHeader>
+            <MudStack Class="px-4 flex-grow-1" Row>
+                <MudIconButton/>
+                <MudSpacer/>
+                <MudText Class="orbitron-font" Style="font-weight: 600!important; font-size: 44px;!important; font-style: italic; text-decoration: underline;" Align="Align.Center">Funny Quotes</MudText>
+                <MudSpacer/>
+                <div>
+                    <MudIconButton Class="ma-auto" Color="Color.Dark" Icon="fas fa-xmark" Style="z-index: 1;" OnClick="@Toggle"/>
+                </div>
+            </MudStack>
+        </MudDrawerHeader>
+        <MudStack Row Class="flex-grow-1" Justify="Justify.Center" Style="height: 100vh; width: 100vw;">
+            <MudStack Class="ma-auto">
+                <MudLink Href="/" Underline="Underline.None" OnClick="@Toggle">
+                    <MudText Class="orbitron-font clink" Style="font-weight: 800!important; font-size: 54px!important;" Align="Align.Center" Color="Color.Dark">Home</MudText>
+                </MudLink>
+                <MudLink Href="/" Underline="Underline.None" OnClick="@Toggle">
+                    <MudText Class="orbitron-font clink" Style="font-weight: 800!important; font-size: 54px!important;" Align="Align.Center" Color="Color.Dark">Formulaire</MudText>
+                </MudLink>
+                <MudLink Href="/" Underline="Underline.None" OnClick="@Toggle">
+                    <MudText Class="orbitron-font clink" Style="font-weight: 800!important; font-size: 54px!important;" Align="Align.Center" Color="Color.Dark">Contact</MudText>
+                </MudLink>
+            </MudStack>
+        </MudStack>
+        <MudStack Class="mb-4 px-4" Row>
+            <MudText Class="orbitron-font" Typo="Typo.caption" Style="font-style: italic;">Auteur : Maxime Brochard</MudText>
+            <MudSpacer/>
+            <MudText Class="orbitron-font" Typo="Typo.caption">© SASP 2023</MudText>
+        </MudStack>
+    </MudDrawer>
+</MudDrawerContainer>
+
+@code {
+    private bool _toggle;
+
+    public void Toggle()
+    {
+        _toggle = !_toggle;
+    }
+}
