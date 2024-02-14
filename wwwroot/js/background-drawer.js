@@ -25,7 +25,7 @@
 
 (function() {
 
-    var width, height, canvas, ctx, circles, target, animateHeader = true;
+    var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
     
     initHeader();
     addListeners();
@@ -35,12 +35,12 @@
         height = window.innerHeight;
         target = {x: 0, y: height};
 
-        canvas = document.getElementById('canvas');
+        canvas = document.getElementById('drawer-canvas');
         if(canvas != null) {
             canvas.width = width;
             canvas.height = height;
             ctx = canvas.getContext('2d');
-
+            
             circles = [];
             for(var x = 0; x < width*0.5; x++) {
                 var c = new Circle();
@@ -62,8 +62,8 @@
 
     function resize() {
         if(canvas != null) {
-            width = window.innerWidth;
-            height = window.innerHeight;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
             canvas.width = width;
             canvas.height = height;
         }
@@ -89,7 +89,7 @@
 
         function init() {
             _this.pos.x = Math.random()*width;
-            _this.pos.y = height+Math.random()*100;
+            _this.pos.y = 100/Math.random();
             _this.alpha = 0.1+Math.random()*0.3;
             _this.scale = 0.1+Math.random()*0.3;
             _this.velocity = Math.random();

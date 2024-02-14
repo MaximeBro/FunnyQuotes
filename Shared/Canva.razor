@@ -1,0 +1,9 @@
+﻿<div class="@Class" style="position: absolute!important; top: 0; z-index: -10; width: 100vw; height: 100vh;">
+    <canvas id="canvas"></canvas>
+</div>
+<script src="js/background.js"></script>
+
+@code {
+    [Parameter]
+    public string Class { get; set; } = string.Empty;
+}

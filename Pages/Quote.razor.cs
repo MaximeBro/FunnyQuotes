@@ -13,7 +13,7 @@ public partial class Quote
 		CurrentQuote = new QuoteModel
 		{
 			Quote = "Eat(); Code(); Sleep(); Repeat();",
-			Author = "Robert",
+			Author = "Robert Patruche",
 			Anonymous = false
 		};
 	}

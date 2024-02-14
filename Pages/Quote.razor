@@ -2,33 +2,36 @@
 
 <PageTitle>Accueil</PageTitle>
 
-<script src="js/background.js"></script>
-@if (CurrentQuote != null)
-{
-    <MudStack Class="flex-grow-1" Style="position: absolute; height: 100vh; width: 100vw;">
-        <MudStack Class="ma-auto px-12 py-8">
-            <MudText Class="text-white overclock" Align="Align.Center" Typo="Typo.h5">@CurrentQuote.Quote</MudText>
+<Canva Class="darkslide-bg"/>
+<MudContainer Style="height: 100vh; width: 100vw;">
+    @if (CurrentQuote != null)
+    {
+        <MudStack Class="ma-auto px-12 py-8" Style="height: 100%;" Justify="Justify.Center">
+            <MudText Class="text-white protest-revolution" Align="Align.Center" Typo="Typo.h5">" @CurrentQuote.Quote "</MudText>
             @if (!CurrentQuote.Anonymous)
             {
-                <MudText Class="white-text fst-italic pr-4" Align="Align.Right" Typo="Typo.subtitle2">@CurrentQuote.Author?.ToString()</MudText>
+                <MudText Style="font-style: italic; font-weight: 700; color: #dfdfdf;" Align="Align.Center" Typo="Typo.button">
+                    @CurrentQuote.Author?.ToString()
+                </MudText>
             }
-            <MudStack Row Justify="Justify.SpaceBetween">
+            <MudStack Class="mt-4" Row Justify="Justify.SpaceBetween">
                 <MudSpacer/>
-                <MudStack class="mr-3">
-                    <MudBadge Origin="Origin.CenterRight" Content="@UpVotes" Max="999" Color="Color.Success">
-                        <MudIconButton Class="vote" Icon="fas fa-thumbs-up" Color="Color.Success" OnClick="@UpVote"/>
-                    </MudBadge>
-                </MudStack>
-                <MudStack Class="ml-3">
-                    <MudBadge Origin="Origin.CenterRight" Content="@DownVotes" Max="999" Color="Color.Error">
-                        <MudIconButton Class="vote" Icon="fas fa-thumbs-down" Color="Color.Error" OnClick="@DownVote"/>
-                    </MudBadge>
-                </MudStack>
+                <MudBadge Class="ml-n6" Origin="Origin.TopRight" Overlap Content="@UpVotes" Max="999" Color="Color.Success">
+                    <MudIconButton Class="vote" Icon="fas fa-thumbs-up" Color="Color.Success" OnClick="@UpVote"/>
+                </MudBadge>
+                <MudBadge Origin="Origin.TopRight" Overlap Content="@DownVotes" Max="999" Color="Color.Error">
+                    <MudIconButton Class="vote" Icon="fas fa-thumbs-down" Color="Color.Error" OnClick="@DownVote"/>
+                </MudBadge>
                 <MudSpacer/>
             </MudStack>
+            <MudStack Row Justify="Justify.Center">
+                <MudStack Class="links px-4 py-2" Row Justify="Justify.SpaceBetween">
+                    <MudIconButton id="linkedin" Icon="fab fa-linkedin" Href="https://www.linkedin.com/company/sasp-it-process-automation/" Target="_blank" />
+                    <MudIconButton id="github" Icon="fab fa-github" Href="https://github.com/MaximeBro/FunnyQuotes" Target="_blank" />
+                    <MudIconButton id="write" Icon="fas fa-feather" Href="/formulaire" />
+                    <MudIconButton id="contact" Icon="fas fa-envelope" Href="/contact" />
+                </MudStack>
+            </MudStack>
         </MudStack>
-    </MudStack>
-}
-<div id="large-header" class="darkslide-bg">
-    <canvas id="demo-canvas"></canvas>
-</div>
+    }
+</MudContainer>
